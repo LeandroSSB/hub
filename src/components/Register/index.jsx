@@ -35,9 +35,10 @@ import axios from 'axios'
                 contact: obj.contact,
                 course_module: obj.course_module
             }
-            axios.post("http://kenziehub.me/users", {...tratedObj})
-            .then((res) => res)
-            .catch((err) => console.log(err))
+            console.log(tratedObj)
+            axios.post("https://kenziehub.me/users", {...tratedObj})
+            .then((res) => console.log(res))
+            .catch((err) => alert(err))
         }
         
         return (
