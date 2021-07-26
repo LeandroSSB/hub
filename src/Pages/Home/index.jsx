@@ -1,9 +1,13 @@
-    import { useHistory } from "react-router-dom"
+    import { Redirect, useHistory } from "react-router-dom"
     import { Button, Grid , Paper} from "@material-ui/core"
 
-        const Home = () => {
+        const Home = ({auth}) => {
             const history = useHistory()
             const handlePath = (path) => history.push(path) 
+
+            if (auth) {
+                return <Redirect to="/dashboard"  />
+            }
 
             return (
                 <Grid container justifyContent = "center" align = "center" >
