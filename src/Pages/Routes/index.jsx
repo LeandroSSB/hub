@@ -7,15 +7,25 @@ import { useEffect, useState } from "react"
 
 
 
-    const Routes = ({auth, setAuth}) => {
-       
+    const Routes = () => {
+        const [auth, setAuth] = useState(false)
+
+        useEffect(() => {
+
+            const token = JSON.parse(localStorage.getItem("@KenzieHub:token"))
+            if(token){
+                setAuth(true)
+            }
+
+        },[])
+
         return (
             <Switch>
                 <Route exact path = "/register">
                 <Register auth = {auth} />
                 </Route>
                 <Route exact path = "/login">
-                    <Login auth = {auth} />
+                    <Login auth = {auth} setAuth = {setAuth} />
                 </Route>
                 <Route exact path = "/dashboard">
                     <Dashboard auth = {auth} setAuth = {setAuth} />

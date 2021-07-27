@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 
 
 
-    const Login = ({auth, setAuth}) => {
+    const Login = ({auth, setAuth }) => {
         const [password, setPassword] = useState(true)
         const handlePassword = () => setPassword(!password)
         const schema = yup.object().shape({
@@ -35,9 +35,11 @@ import { toast } from "react-toastify";
             axios.post("https://kenziehub.me/sessions", {...user})
             .then((res) => {
                 const { token } = res.data
+                const { id } = res.data.user
+                localStorage.setItem("@KenzieHub:id", JSON.stringify(id))
                 localStorage.setItem("@KenzieHub:token", JSON.stringify(token))
+                history.push("/dashboard")
                 setAuth(true)
-                return history.push("/dashboard")
             })
             
             .catch((err) => toast.error("Email ou senha incorreta", {
