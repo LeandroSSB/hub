@@ -78,8 +78,8 @@ const useStyles = makeStyles((theme) => ({
 
             const handleDelete = (json) => {
                 const id = json
-                console.log(json)
-                axios.delete(`https://kenziehub.me/users/techs/${id}`, config ,config)
+                
+                axios.delete(`https://kenziehub.me/users/techs/${id}`, config )
                 .then((_) => toast.success(" Deletado com sucesso! "))
                 .then((_) => setAtt(!att))
                 .catch((err) => alert(err))
