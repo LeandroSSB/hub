@@ -80,7 +80,14 @@ const useStyles = makeStyles((theme) => ({
                 const id = json
                 
                 axios.delete(`https://kenziehub.me/users/techs/${id}`, config )
-                .then((_) => toast.success(" Deletado com sucesso! "))
+                .then((_) => toast.success(" Deletado com sucesso! ", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,}))
                 .then((_) => setAtt(!att))
                 .catch((err) => alert(err))
             }
