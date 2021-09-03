@@ -13,10 +13,10 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: hsl(230, 7%, 25%);
+  background: linear-gradient(to left, #7AA5BF, #224459);
   >div{
-    padding: 1rem;
-    background: gray;
+    padding: 3rem;
+    background: #5881A6;
     text-align: center;
     >form{
       >span{

@@ -5,8 +5,8 @@
       paper: {
         padding: "5rem",
         textAlign: "center",
-        background: "gray",
-        color: "white",
+        background: "#5881A6",
+        color: "black",
       }
     }))
 
@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: hsl(230, 7%, 25%);
+    background: linear-gradient(to left, #7AA5BF, #224459);
     >div{
       >button + button{
         margin: 10px;

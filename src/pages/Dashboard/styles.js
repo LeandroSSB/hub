@@ -1,3 +1,4 @@
+import { Paper } from '@material-ui/core'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -6,12 +7,12 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
-  background: hsl(230, 7%, 25%);
+  background: linear-gradient(to left, #7AA5BF, #224459);
   div + div {
     margin: 10px;
   }
   >div{
-    background: gray;
+    background: #5881A6;
     padding: 50px;
     display: flex;
     flex-flow: column nowrap;
@@ -26,13 +27,12 @@ export const Container = styled.div`
     }
   }
 `
-export const Item = styled.li`
+export const Item = styled(Paper)`
   display: flex;
   flex-flow: column;
-  background: gray;
+  background: #5881A6;
   align-items: center;
   padding: 50rem;
-  border-radius: .75rem;
   padding: 10px;
   margin: 10px;
 `
