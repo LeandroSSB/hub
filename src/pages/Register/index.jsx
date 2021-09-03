@@ -63,6 +63,8 @@ const Register = ({ auth }) => {
   return (
     <Container>
       <Paper>
+        <h1>KenzieHub</h1>
+        <h3>Registro</h3>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             error={errors.email ? true : false}

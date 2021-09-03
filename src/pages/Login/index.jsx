@@ -54,7 +54,8 @@ const Login = ({ auth, setAuth }) => {
   return (
     <Container>
       <Paper>
-        <h1> Login </h1>
+        <h1> KenzieHub. </h1>
+        <h2>Bem vindo de volta!</h2>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             error={errors.email ? true : false}

@@ -33,7 +33,7 @@ const Dashboard = ({ auth, setAuth }) => {
       .post("/users/techs", user, config)
       .then((_) => setAtt(!att))
       .then((_) => toast.success("adicionado!"))
-      .catch((err) => toast.error(`${err}`));
+      .catch((err) => toast.error(`Tecnologia repetida!`));
   };
 
   const handleDelete = (json) => {

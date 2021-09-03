@@ -34,9 +34,9 @@ export const Container = styled.div`
   }
   @media(max-width: 750px){
     height: 100%;
-    padding: 0px;
     >div{
-      padding: 20px;
+      width: 100%;
+      text-align: start;
     }
   }
 `

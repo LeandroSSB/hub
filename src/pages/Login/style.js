@@ -32,8 +32,17 @@ export const Container = styled.div`
         }
       }
     }
-    @media(max-width: 600px){
-      padding: 10px;
+    @media( max-width: 750px ){
+      width: 100%;
+      text-align: start;
+    }
+    @media(max-width: 450px){
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      text-align: start;
+      justify-content: center;
     }
   }
 `
