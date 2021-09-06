@@ -1,26 +1,19 @@
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Paper, Button, TextField, MenuItem } from "@material-ui/core";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { Container, Item, List } from "./styles";
 import api from "../../services/api";
+import { useAuth } from "../../providers/Auth";
 
-const Dashboard = ({ auth, setAuth }) => {
-  const history = useHistory();
-
-  const handleLogout = () => {
-    localStorage.clear();
-    setAuth(!auth);
-    history.push("/login");
-  };
-
+const Dashboard = () => {
   const [att, setAtt] = useState(false);
   const [name, setName] = useState("");
   const [skill, setSkill] = useState("");
 
   const skillLevel = ["Iniciante", "Intermediário", "Avançado"];
-
+  const { auth } = useAuth();
   const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
   const config = { headers: { Authorization: `Bearer ${token}` } };
 
@@ -81,9 +74,6 @@ const Dashboard = ({ auth, setAuth }) => {
         </TextField>
         <Button variant="outlined" onClick={() => handleSubmit(name, skill)}>
           Adicionar
-        </Button>
-        <Button variant="outlined" onClick={handleLogout}>
-          Deslogar
         </Button>
       </Paper>
 

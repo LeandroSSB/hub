@@ -9,8 +9,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory, Redirect, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
+import { useAuth } from "../../providers/Auth";
 
-const Register = ({ auth }) => {
+const Register = () => {
   const [password, setPassword] = useState(true);
   const handlePassword = () => setPassword(!password);
   const schema = yup.object().shape({
@@ -32,6 +33,7 @@ const Register = ({ auth }) => {
     course_module: yup.string().required("Campo obrigatorio"),
   });
   const history = useHistory();
+  const { auth } = useAuth();
   const {
     register,
     handleSubmit,

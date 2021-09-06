@@ -6,28 +6,19 @@ import Dashboard from "../pages/Dashboard";
 import { useEffect, useState } from "react";
 
 const Routes = () => {
-  const [auth, setAuth] = useState(false);
-
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
-    if (token) {
-      setAuth(true);
-    }
-  }, []);
-
   return (
     <Switch>
       <Route exact path="/register">
-        <Register auth={auth} />
+        <Register />
       </Route>
       <Route exact path="/login">
-        <Login auth={auth} setAuth={setAuth} />
+        <Login />
       </Route>
       <Route exact path="/dashboard">
-        <Dashboard auth={auth} setAuth={setAuth} />
+        <Dashboard />
       </Route>
       <Route exact path="/">
-        <Home auth={auth} />
+        <Home />
       </Route>
     </Switch>
   );

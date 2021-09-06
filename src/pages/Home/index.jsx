@@ -2,11 +2,13 @@ import { Redirect, useHistory } from "react-router-dom";
 import { Button, Paper } from "@material-ui/core";
 
 import { Container, useStyles } from "./style";
+import { useAuth } from "../../providers/Auth";
 
-const Home = ({ auth }) => {
+const Home = () => {
   const history = useHistory();
   const handlePath = (path) => history.push(path);
   const themes = useStyles();
+  const { auth } = useAuth();
 
   if (auth) {
     return <Redirect to="/dashboard" />;

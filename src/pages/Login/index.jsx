@@ -7,10 +7,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import { useHistory, Redirect, Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../../providers/Auth";
 
-const Login = ({ auth, setAuth }) => {
+const Login = () => {
   const [password, setPassword] = useState(true);
   const handlePassword = () => setPassword(!password);
   const schema = yup.object().shape({
@@ -23,7 +24,7 @@ const Login = ({ auth, setAuth }) => {
       .min(6, "minimo 6 caracteres")
       .required("Campo obrigatorio"),
   });
-  const history = useHistory();
+  const { auth, login } = useAuth();
   const {
     register,
     handleSubmit,
@@ -39,12 +40,10 @@ const Login = ({ auth, setAuth }) => {
       .then((res) => {
         const { token } = res.data;
         const { id } = res.data.user;
-        localStorage.setItem("@KenzieHub:id", JSON.stringify(id));
-        localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
-        history.push("/dashboard");
-        setAuth(true);
+        console.log(login);
+        login(id, token);
       })
-      .catch((err) => toast.error("Email ou senha incorreta", {}));
+      .catch((err) => toast.error("Email ou senha incorreta"));
   };
 
   if (auth) {
